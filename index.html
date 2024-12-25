@@ -1,111 +1,158 @@
 <!DOCTYPE html>
-<html lang="sr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moja Stranica</title>
+    <title>Responsive Bootstrap Example</title>
+    <!-- Uključivanje Bootstrap CSS-a -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Prilagođeni CSS za promenu boje hover efekta i razmak između slika -->
     <style>
-        body {
-            
-    background-image: url('putanja-do-slike.jpg');
-    background-size: cover;  /* Prilagođava veličinu slike tako da pokrije celu stranicu */
-    background-position: center center;  /* Pozicionira sliku u sredinu */
-    background-attachment: fixed;  /* Sprečava pomeranje slike prilikom skrolovanja */
-    margin: 0;
-    padding: 0;
-}
-        
-        
-        /* Glavni naslov u centru ekrana */
-        h1 {
-
-            margin-top: 50px;
-            margin-left: 815px;
-            color: rgb(41, 49, 92);
-            
+        /* Promena boje pri hover efektu za sve dugmadi */
+        .btn:hover {
+            background-color: #717471; /* Zeleno dugme pri hover-u */
+            border-color: #a3a3a3; /* Ista boja ivice */
+            color: white; /* Bela boja teksta pri hover-u */
         }
-        
-        /* Navigacija */
-        .navbar {
+
+        /* Promena boje za drugo dugme */
+        .btn-secondary:hover {
+            background-color: #007bff; /* Plavo dugme pri hover-u */
+            border-color: #ffffff;
+            color: white;
+        }
+
+        /* Razmak između slika - povećan razmak */
+        .img-fluid {
+            margin-top: 150px; /* Razmak između svake slike */
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        /* Centriranje teksta unutar dugmadi i sprečavanje preloma teksta */
+        .btn {
+            display: inline-flex;
+            align-items: center; /* Vertikalno centriranje */
+            justify-content: center; /* Horizontalno centriranje */
+            padding: 10px 20px; /* Dodajte malo unutrašnjeg razmaka za bolje izgleda */
+            white-space: nowrap; /* Sprečava prelazak teksta u drugi red */
+        }
+
+        /* Dugme koje zauzima širinu teksta */
+        .btn-block {
+            width: auto;
+        }
+
+        /* Prilagodba za raspored dugmadi da budu ravnomerno raspoređena */
+        .btn-row {
             display: flex;
-            justify-content: center;
-            gap: 100px;
-            margin-top: 60px;
+            justify-content: space-between;
         }
 
-        .navbar button {
-            padding: 10px 20px;
-            font-size: 20px;
-            cursor: pointer;
-            background-color: #096970;
-            color: rgb(255, 255, 255);
-            border: none;
-            border-radius: 15px;
+        .btn-col {
+            flex: 1;
+            margin: 0 35px;
         }
 
-        .navbar button:hover {
-            background-color: #ff0000;
+        /* Stil za uokvireni tekst i dugmadi u boksu */
+        .box-container {
+            border: 2px solid #007bff; /* Plava ivica okvira */
+            padding: 20px;
+            border-radius: 10px; /* Zaobljene ivice */
+            background-color: #f0f8ff; /* Svetlo plava pozadina */
+            margin-bottom: 30px; /* Razmak ispod okvira */
         }
 
-        /* Stil za slike */
-        .image-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 60px;
+        /* Dodatni stilovi za grupu dugmadi unutar okvira */
+        .box-container .btn-row {
+            margin-top: 10px;
+            justify-content: space-between; /* Razmak između dugmadi */
         }
 
-        .image-container img {
-            max-width: 70%;
-            height: auto;
+        .box-container .btn-col {
+            flex: 1;
+            margin: 0 15px; /* Manji razmak između dugmadi */
         }
 
-        .image-container .image-box {
+        /* Stil za tekst unutar okvira */
+        .box-container p {
+            font-weight: bold;
+            color: #007bff; /* Plava boja za tekst */
             text-align: center;
-        }
-
-        /* Prostor za video */
-        .video-container {
-            margin-top: 60px;
-            text-align: center;
-        }
-
-        iframe {
-            width: 37%;
-            height: 400px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Glavni naslov -->
-    <h1>Kuglaški Savez Srbije Test</h1>
+    <!-- Glavni sadržaj -->
+    <div class="container d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
+        
+        <!-- Naslov u sredini -->
+        <h1 class="text-center mb-4">Evidencija-Pregled Postignutih Rezultata</h1>
 
-    <!-- Navigacija sa 4 dugmeta -->
-    <div class="navbar">
-        <button onclick="window.open('kolo 9.pdf', '_blank')">Kolo Broj 9</button>
-        <button onclick="window.open('centar7.pdf', '_blank')">Centar 7. kolo</button>
-        <button onclick="window.open('musko.pdf', '_blank')">Muška liga</button>
-        <button onclick="window.open('https://www.youtube.com/@%D0%94%D1%80%D0%B0%D0%B3%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D0%92%D1%83%D0%BA%D1%81%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%9B', '_blank')">Najbolji kuglaš Srbije</button>
+        <!-- Novo dugme ispod naslova -->
+        <a href="musko.pdf" target="_blank">
+            <button class="btn btn-secondary mb-4">Pregled kola</button>
+        </a>
+
+        <!-- Tekst i dugmadi unutar okvira za žensku konkurenciju -->
+        <div class="box-container">
+            <!-- Tekst iznad dugmadi -->
+            <p>Ženska Konkurencija</p>
+
+            <!-- Prva grupa dugmadi -->
+            <div class="btn-row">
+                <div class="btn-col">
+                    <a href="https://example.com/sample2.pdf" target="_blank">
+                        <button class="btn btn-primary btn-block">Super Liga</button>
+                    </a>
+                </div>
+                <div class="btn-col">
+                    <a href="https://example.com/sample3.pdf" target="_blank">
+                        <button class="btn btn-primary btn-block">I Liga Srbije-Centar</button>
+                    </a>
+                </div>
+                <div class="btn-col">
+                    <a href="https://example.com/sample4.pdf" target="_blank">
+                        <button class="btn btn-primary btn-block">I Liga Vojvodine-Centar</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tekst ispod druge grupe dugmadi -->
+        <div class="box-container">
+            <!-- Tekst za mušku konkurenciju -->
+            <p>Muška Konkurencija</p>
+
+            <!-- Druga grupa dugmadi -->
+            <div class="btn-row">
+                <div class="btn-col">
+                    <a href="https://example.com/sample5.pdf" target="_blank">
+                        <button class="btn btn-primary btn-block">Super Liga</button>
+                    </a>
+                </div>
+                <div class="btn-col">
+                    <a href="https://example.com/sample6.pdf" target="_blank">
+                        <button class="btn btn-primary btn-block">I liga Srbije-Centar</button>
+                    </a>
+                </div>
+                <div class="btn-col">
+                    <a href="https://example.com/sample7.pdf" target="_blank">
+                        <button class="btn btn-primary btn-block">I Liga Vojvodine-Centar</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <!-- Tri slike u istom redu sa tekstom ispod -->
-    <div class="image-container">
-        <div class="image-box">
-            <img src="http://kuglanje.rs/wp-content/uploads/2019/09/sss.jpg" alt="Slika 1">
-            <p></p>
-        </div>
-        <div class="image-box">
-            <img src="http://kuglanje.rs/wp-content/uploads/2019/09/aars.jpg" alt="Slika 2">
-            <p></p>
-        </div>
-        <div class="image-box">
-            <img src="http://kuglanje.rs/wp-content/uploads/2019/09/rmos.jpg" alt="Slika 3">
-            <p></p>
-        </div>
-    </div>
-
-
-
+    <!-- Uključivanje Bootstrap JS-a i zavisnosti -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
